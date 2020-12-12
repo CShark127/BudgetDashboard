@@ -1,0 +1,71 @@
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container .mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.select-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  .instituiton-logo {
+    margin-right: 8px;
+    height: 25px;
+  }
+
+  .instituiton-name {
+    text-align: left;
+  }
+}
+
+.test {
+  background-image: url("../../../assets/institution_logos/merrill.png");
+}
+
+.selected-option {
+  position: relative;
+  height: 17px;
+  overflow: visible;
+
+  .test {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    bottom: -4px;
+    background-image: url("../../../assets//institution_logos/BankOfAmerica.png");
+    background-size: cover;
+  }
+
+  .institution-name {
+    margin-left: 33px;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+
+  app-institution-icon {
+    flex: 1 0 21%; /* explanation below */
+    margin: 8px;
+    max-width: 175px;
+  }
+}

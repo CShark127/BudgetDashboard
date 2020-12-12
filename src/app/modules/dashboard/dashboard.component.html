@@ -1,0 +1,76 @@
+<h4 class="page-title">Budget Overview</h4>
+<div class="row">
+  <app-summary-metrics [metrics]="summaryMetrics"></app-summary-metrics>
+</div>
+<div class="two-column">
+  <div class="left-column">
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'Bank of America'"
+        [institutionType]="'Banking'"
+        [institutionAvatar]="'BankOfAmerica.png'"
+        [accounts]="bankOfAmericaAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'TD Ameritrade'"
+        [institutionType]="'Investing'"
+        [institutionAvatar]="'TDAmeritrade.png'"
+        [accounts]="tdAmeritradeAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'Vanguard'"
+        [institutionType]="'Investing'"
+        [institutionAvatar]="'vanguard.jpg'"
+        [accounts]="vanguardAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'eTrade'"
+        [institutionType]="'Investing'"
+        [institutionAvatar]="'etrade.jpg'"
+        [accounts]="etradeAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'Fidelity'"
+        [institutionType]="'Retirement'"
+        [institutionAvatar]="'fidelity.jpg'"
+        [accounts]="fidelityAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'Chase'"
+        [institutionType]="'Banking'"
+        [institutionAvatar]="'chase.jpg'"
+        [accounts]="chaseAccounts"
+      ></app-institution-overview>
+    </div>
+    <div class="item">
+      <app-institution-overview
+        [institutionName]="'Merrill Edge'"
+        [institutionType]="'Investing'"
+        [institutionAvatar]="'merrill.png'"
+        [accounts]="merrillAccounts"
+      ></app-institution-overview>
+    </div>
+  </div>
+  <div class="right-column">
+    <div class="item">
+      <mat-card class="chart-card mat-elevation-z2"
+        ><div echarts [options]="options" class="demo-chart"></div
+      ></mat-card>
+    </div>
+    <div class="item">
+      <mat-card class="chart-card mat-elevation-z2"
+        >Table of Monthly Income vs Savings/Investing vs Bills</mat-card
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<button mat-button *ngIf="!newInstitution; else showNew">
+  <mat-card class="mat-elevation-z2">
+    <mat-card-content>
+      <div
+        class="institution-image"
+        [style.background-image]="'url(' + InstitutionAvatar + ')'"
+      ></div>
+      <span class=".mat-subheading-2">{{ InstitutionName }}</span>
+    </mat-card-content>
+  </mat-card>
+</button>
+
+<ng-template #showNew>
+  <button mat-button>
+    <mat-card class="mat-elevation-z2">
+      <mat-card-content>
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >add</mat-icon
+        >
+        <span class=".mat-subheading-2">New Institution</span>
+      </mat-card-content>
+    </mat-card>
+  </button>
+</ng-template>

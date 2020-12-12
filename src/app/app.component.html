@@ -1,0 +1,16 @@
+<mat-sidenav-container class="app-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <app-sidenav-menu></app-sidenav-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="header">
+      <h3>Waxler Family Budget</h3>
+      <h4>Last Entry: June 22nd, 2020</h4>
+    </mat-toolbar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+    <mat-toolbar class="footer">Footer</mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

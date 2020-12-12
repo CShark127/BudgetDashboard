@@ -1,0 +1,43 @@
+.app-container {
+  height: 100vh;
+}
+.sidenav {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  background: rgba(34, 42, 69, 0.96);
+  background-attachment: fixed;
+  background-image: url("../assets/nav_nachos@2x.png");
+  background-position: left 0 bottom 0;
+  background-repeat: no-repeat;
+  background-size: 256px 556px;
+}
+
+.header,
+.footer {
+  height: 60px;
+}
+
+.header {
+  position: fixed;
+  width: calc(100vw - 240px);
+  background-color: #fff;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 40px;
+}
+
+.footer {
+  background: rgba(34, 42, 69, 0.96);
+  color: white;
+}
+
+.content-container {
+  margin-top: 60px;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}

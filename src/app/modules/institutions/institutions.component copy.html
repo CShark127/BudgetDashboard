@@ -1,0 +1,109 @@
+<ng-container *ngIf="!institutions">
+  <p>There are no institutions, add one first</p>
+</ng-container>
+
+<div class="example-container">
+  <div>
+    <button mat-raised-button color="primary">Create New</button>
+  </div>
+
+  <form [formGroup]="institutionDetails" (ngSubmit)="OnSubmit()">
+    <div>
+      <label>Status: </label>
+      <mat-radio-group formControlName="active">
+        <mat-radio-button value="active">Active</mat-radio-button>
+        <mat-radio-button value="inactive">Inactive</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field>
+      <mat-select required>
+        <mat-select-trigger>
+          <span class="selected-option">
+            <span class="test"></span>
+            <span class="institution-name">Chad</span>
+          </span>
+        </mat-select-trigger>
+        <mat-option>Select</mat-option>
+        <mat-option value="bank-of-america">
+          <div class="select-option">
+            <img
+              class="instituiton-logo"
+              src="../../../assets/institution_logos/BankOfAmerica.png"
+            />
+            <span class="instituiton-name">Bank of America</span>
+          </div>
+        </mat-option>
+        <mat-option value="td-ameritrade">
+          <div class="select-option">
+            <img
+              class="instituiton-logo"
+              src="../../../assets/institution_logos/TDAmeritrade.png"
+            />
+            <span class="instituiton-name">TD Ameritrade</span>
+          </div>
+        </mat-option>
+        <mat-option value="etrade">
+          <div class="select-option">
+            <img
+              class="instituiton-logo"
+              src="../../../assets/institution_logos/etrade.png"
+            />
+            <span class="instituiton-name">eTrade</span>
+          </div>
+        </mat-option>
+      </mat-select>
+      <mat-label>
+        Institution
+      </mat-label>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Simple placeholder" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="type" placeholder="Simple placeholder" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Url</mat-label>
+      <input matInput formControlName="url" placeholder="Simple placeholder" />
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Img</mat-label>
+      <input
+        formControlName="img"
+        type="file"
+        placeholder="Simple placeholder"
+      />
+    </mat-form-field> -->
+
+    <div>
+      <button type="submit" mat-raised-button color="primary">
+        Save
+      </button>
+    </div>
+  </form>
+
+  <div>
+    <app-institution-overview
+      [institutionName]="institutionDetails.value.instituionName"
+      [institutionType]="institutionDetails.value.institutionType"
+      [institutionUrl]="institutionDetails.value.institutionUrl"
+    ></app-institution-overview>
+  </div>
+  <p>{{ institutionDetails.value | json }}</p>
+  <br />
+
+  <div *ngFor="let institution of institutions | async">
+    <app-institution-overview
+      [institutionName]="institution.name"
+      [institutionType]="institution.type"
+      [institutionUrl]="institution.url"
+    ></app-institution-overview>
+  </div>
+</div>

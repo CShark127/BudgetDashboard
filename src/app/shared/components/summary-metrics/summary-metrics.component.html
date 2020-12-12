@@ -1,0 +1,6 @@
+<mat-card class="mat-elevation-z2 metric-container">
+  <div class="metric" *ngFor="let metric of metrics">
+    <h4 class="metric-value">{{ metric.displayValue }}</h4>
+    <small class="metric-label">{{ metric.displayName }}</small>
+  </div>
+</mat-card>

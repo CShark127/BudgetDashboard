@@ -1,0 +1,16 @@
+<ng-container *ngIf="!institutions">
+  <p>There are no institutions, add one first</p>
+</ng-container>
+
+<div class="example-container">
+  <h2 class="mat-h2">Institutions</h2>
+  <mat-divider></mat-divider>
+  <div class="flex-container">
+    <app-institution-icon
+      *ngFor="let institution of institutions | async"
+      [InstitutionName]="institution.Name"
+      [InstitutionAvatar]="institution.Avatar"
+    ></app-institution-icon>
+    <app-institution-icon [newInstitution]="true"></app-institution-icon>
+  </div>
+</div>

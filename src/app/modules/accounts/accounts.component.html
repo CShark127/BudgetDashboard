@@ -1,0 +1,96 @@
+<ng-container *ngIf="!institutions">
+  <p>There are no institutions, add one first</p>
+</ng-container>
+<ul>
+  <li *ngFor="let item of accounts | async">
+    {{ item | json }}
+  </li>
+</ul>
+
+<div class="example-container">
+  <mat-form-field
+    appearance="outline"
+    [hideRequiredMarker]="hideRequiredControl.value"
+    [floatLabel]="floatLabelControl.value"
+  >
+    <mat-select required>
+      <mat-select-trigger>
+        <span class="selected-option">
+          <span class="test"></span>
+          <span class="institution-name">Chad</span>
+        </span>
+      </mat-select-trigger>
+      <mat-option>Select</mat-option>
+      <mat-option value="bank-of-america">
+        <div class="select-option">
+          <img
+            class="instituiton-logo"
+            src="../../../assets/institution_logos/BankOfAmerica.png"
+          />
+          <span class="instituiton-name">Bank of America</span>
+        </div>
+      </mat-option>
+      <mat-option value="td-ameritrade">
+        <div class="select-option">
+          <img
+            class="instituiton-logo"
+            src="../../../assets/institution_logos/TDAmeritrade.png"
+          />
+          <span class="instituiton-name">TD Ameritrade</span>
+        </div>
+      </mat-option>
+      <mat-option value="etrade">
+        <div class="select-option">
+          <img
+            class="instituiton-logo"
+            src="../../../assets/institution_logos/etrade.png"
+          />
+          <span class="instituiton-name">eTrade</span>
+        </div>
+      </mat-option>
+    </mat-select>
+    <mat-label>
+      Institution
+    </mat-label>
+  </mat-form-field>
+
+  <form [formGroup]="options">
+    <mat-checkbox [formControl]="hideRequiredControl"
+      >Hide required marker</mat-checkbox
+    >
+    <div>
+      <label>Float label: </label>
+      <mat-radio-group [formControl]="floatLabelControl">
+        <mat-radio-button value="auto">Auto</mat-radio-button>
+        <mat-radio-button value="always">Always</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field
+      appearance="fill"
+      [hideRequiredMarker]="hideRequiredControl.value"
+      [floatLabel]="floatLabelControl.value"
+    >
+      <input matInput placeholder="Simple placeholder" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
+      <mat-label>Both a label and a placeholder</mat-label>
+      <input matInput placeholder="Simple placeholder" />
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="fill"
+      [hideRequiredMarker]="hideRequiredControl.value"
+      [floatLabel]="floatLabelControl.value"
+    >
+      <mat-select required>
+        <mat-option>-- None --</mat-option>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+      <mat-label>
+        <mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i>
+      </mat-label>
+    </mat-form-field>
+  </form>
+</div>

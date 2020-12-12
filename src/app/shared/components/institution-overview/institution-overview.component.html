@@ -1,0 +1,78 @@
+<mat-card class="mat-elevation-z2">
+  <mat-card-header>
+    <div
+      *ngIf="!institutionAvatar"
+      mat-card-avatar
+      class="header-image"
+      [ngStyle]="{
+        'background-color': 'lightgray'
+      }"
+    ></div>
+    <div
+      *ngIf="institutionAvatar"
+      mat-card-avatar
+      class="header-image"
+      [ngStyle]="{
+        'background-image':
+          'url(\'../../../../assets/institution_logos/' +
+          institutionAvatar +
+          '\')'
+      }"
+    ></div>
+    <mat-card-title>{{
+      institutionName ? institutionName : "Institution Name"
+    }}</mat-card-title>
+    <mat-card-subtitle>{{
+      institutionType ? institutionType : "Institution Type"
+    }}</mat-card-subtitle>
+
+    <a
+      class="open-in-new"
+      [matTooltip]="institutionUrl ? institutionUrl : 'No URL'"
+      [href]="institutionUrl ? '//' + institutionUrl : ''"
+      target="_blank"
+      ><mat-icon>open_in_new</mat-icon></a
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <div class="content-container">
+      <div *ngIf="!accounts" class="account">
+        <div class="account-info">
+          <span class="account-name">No Linked Accounts</span>
+          <span class="account-value">
+            {{ 0 | currency: "USD":true | currencyDisplay }}
+          </span>
+        </div>
+        <div class="account-details">
+          <small>Linked Account Type</small>
+          <small class="percent-change">0%</small>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <ng-container *ngIf="accounts">
+        <div *ngFor="let account of accounts" class="account">
+          <div class="account-info">
+            <span class="account-name">{{ account.accountName }}</span>
+            <span
+              class="account-value"
+              [class.negative]="account.currentValue < 0"
+            >
+              {{
+                account.currentValue | currency: "USD":true | currencyDisplay
+              }}
+            </span>
+          </div>
+          <div class="account-details">
+            <small>Liquid, Checking</small>
+            <small class="percent-change">6.95%</small>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </ng-container>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Details</button>
+    <button mat-button>History</button>
+  </mat-card-actions>
+</mat-card>

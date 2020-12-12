@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "budget-tracker",
+      "public": "dist/budget-tracker",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+mat-card {
+  min-width: 325px;
+}
+
+mat-card-header {
+  position: relative;
+
+  .open-in-new {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    mat-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.header-image {
+  background-size: cover;
+}
+
+.content-container {
+  width: 100%;
+
+  .account {
+    padding-bottom: 1rem;
+
+    .account-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .account-value {
+        color: black;
+      }
+      .negative {
+        color: red;
+      }
+    }
+
+    .account-details {
+      color: rgba(0, 0, 0, 0.54);
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+mat-card-actions {
+  padding-top: 0;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .percent-change {
+    color: green;
+  }
+}
