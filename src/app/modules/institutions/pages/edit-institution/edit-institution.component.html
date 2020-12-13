@@ -1,6 +1,9 @@
-<div class="example-container">
-  <h2 class="mat-h2">Bank of America</h2>
+<div *ngIf="institutionDetails" class="institution-container">
+  <div class="title-container">
+    <img class="institution-avatar" src="{{ institutionDetails.Avatar }}" />
+    <h2 class="institution-title mat-h2">{{ institutionDetails.Name }}</h2>
+  </div>
   <mat-divider></mat-divider>
   {{ institutionId }}
-  <pre>{{institutionDetails | async | json}}</pre>
+  <pre>{{ institutionDetails | json }}</pre>
 </div>

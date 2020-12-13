@@ -1,0 +1,10 @@
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  img.institution-avatar {
+    height: 36px;
+    border-radius: 50%;
+  }
+}

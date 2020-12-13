@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter, first, map } from 'rxjs/operators';
 
 import { InstitutionService } from '@shared/services/institution/institution.service';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ type InstitutionDetailDocument = BudgetTypes.InstitutionDetailDocument;
 })
 export class EditInstitutionComponent implements OnInit {
   public institutionId: string;
-  public institutionDetails: Observable<InstitutionDetailDocument[]>;
+  public institutionDetails: InstitutionDetailDocument;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,14 +28,19 @@ export class EditInstitutionComponent implements OnInit {
   }
 
   getInstitutionDetails() {
-    this.institutionDetails = this.instService.institutionDetails.pipe(
-      filter(data => data != null),
-      map((institutions: InstitutionDetailDocument[]) =>
-        institutions.filter(
-          (institution: InstitutionDetailDocument) =>
-            institution.Id == this.institutionId
-        )
+    this.instService.institutionDetails
+      .pipe(
+        filter((data) => data != null),
+        first()
+        // map((institutions: InstitutionDetailDocument[]) =>
+        //   institutions.filter(
+        //     (institution: InstitutionDetailDocument) =>
+        //       institution.Id == this.institutionId
+        //   )
+        // )
       )
-    );
+      .subscribe({
+        next: (data) => (this.institutionDetails = data[0]),
+      });
   }
 }
