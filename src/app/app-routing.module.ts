@@ -23,6 +23,13 @@ const routes: Routes = [
         (m) => m.InstitutionsModule
       ),
   },
+  {
+    path: 'NewRecord',
+    loadChildren: () =>
+      import('./modules/new-record/new-record.module').then(
+        (m) => m.NewRecordModule
+      ),
+  },
 ];
 
 @NgModule({
