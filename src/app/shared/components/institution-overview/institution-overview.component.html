@@ -52,13 +52,13 @@
       <ng-container *ngIf="accounts">
         <div *ngFor="let account of accounts" class="account">
           <div class="account-info">
-            <span class="account-name">{{ account.accountName }}</span>
+            <span class="account-name">{{ account.AccountName }}</span>
             <span
               class="account-value"
-              [class.negative]="account.currentValue < 0"
+              [class.negative]="account.CurrentValue < 0"
             >
               {{
-                account.currentValue | currency: "USD":true | currencyDisplay
+                account.CurrentValue | currency: "USD":true | currencyDisplay
               }}
             </span>
           </div>
